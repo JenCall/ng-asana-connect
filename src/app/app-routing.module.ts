@@ -4,7 +4,11 @@ import { ProfileComponent } from 'src/profile/profile.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
-  // { path: 'second-component', component: SecondComponent },
+  {
+    path: 'session',
+    loadChildren: () =>
+      import('../session/session.module').then((m) => m.SessionModule),
+  },
 ];
 
 @NgModule({
