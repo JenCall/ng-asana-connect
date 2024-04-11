@@ -7,6 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  isLanguageChanged: boolean = false;
+
   constructor(private translate: TranslateService) {
     this.translate.get('profile').subscribe((res) => {
       console.log(res);
@@ -15,5 +17,9 @@ export class HeaderComponent {
 
   changeLocale(locale: string) {
     this.translate.use(locale);
+  }
+
+  chooseLocale() {
+    this.isLanguageChanged = !this.isLanguageChanged;
   }
 }
